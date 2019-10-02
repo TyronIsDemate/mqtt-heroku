@@ -1,0 +1,93 @@
+
+<html>
+  
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Mqtt</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <style>
+      html body{
+          height: 100%;
+          background-color: aquamarine;
+          
+      }
+      .card{
+          height: 100%;
+          color:gray;
+      }
+      .h4 {
+          background-color: violet;
+          padding: 5px;
+          color: black;
+          
+      }
+      .my-custom-scrollbar {
+          position: relative;
+          height: 300px;
+          overflow: auto;
+      }
+      .table-wrapper-scroll-y {
+          display: block;
+      }
+      </style>
+  <body>
+      <div class="jumbotron text-center">
+          <h1>MOWS</h1>
+          <p>MQTT on Web Browser</p> 
+      </div>
+      <div class="container">
+          <div class="row">
+              <!-- column 1 -->
+              <div class="col">
+                  <div class="card">
+                      <div class="container">
+                          <center>
+                              <div class="card-header">
+                                  <div class="text-center h4">Broker</div>
+                              </div>
+                              <div class="card-body">
+                                  <label> Address:</label>
+                                  <input id="broker" value="wss://test.mosquitto.org:8081/mqtt">
+      
+                                  <button id="connect" onclick="connectFunc()">Connect</button>
+                              </div>
+                          </center>
+                          <div class="col">
+                              <div class="card">
+                                  <div class="container">
+                                          <div class="card-header">
+                                              <div class="text-center h4">Publisher</div>
+                                          </div>
+                                     
+                                      <div class="card-body">
+                                              <center>Topic: <input id="pub-topic" value="Type">
+                                              Payload: <input id="pub-payload" value="Type"></center><br>
+                                              <center><button id="publish" onclick="publishFunc(client.publish(document.getElementById('pub-topic').value, document.getElementById('pub-payload').value))">Publish</button></center>
+                                              <br>
+                                              <div class="col">
+                                                  <div class="card">
+                                                      <div class="container">
+                                                         
+                                                              <div class="card-header">
+                                                                  <div class="text-center h4">Subscriber</div>
+                                                              </div>
+                                                        
+                                                          <center><div class="card-body">
+                                                              <div class="form-group">
+                                                                  <label>Topic:</label>
+                                                                  Topic: <input id="sub-topic" value="Type">
+
+                                                                  <button id="subscribe" onclick="subscribeFunc()">Subscribe</button>
+                                                              </div></center>
+                                      
+
+                                        </body>
+  <script src="scripts/browserMqtt.js"></script>
+  <script src="scripts/controller.js"></script>
+  </html>
